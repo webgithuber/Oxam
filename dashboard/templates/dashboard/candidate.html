@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Dashboard</title>
+    <style>
+      /* Table styles */
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+      th {
+        background-color: #4CAF50;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      /* Image styles */
+      .user-image {
+        max-width: 100px;
+        max-height: 100px;
+      }
+      /* Timestamp styles */
+      .timestamp {
+        font-size: 14px;
+        color: #888;
+      }
+      /* Status styles */
+      .status {
+        font-weight: bold;
+        font-size: 16px;
+        color: #4CAF50;
+      }
+      .status.inactive {
+        color: #f44336;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Admin Dashboard</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Timestamp</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+           
+            {% for img in images %}
+        <tr>
+          <td><img class="user-image" src="{% url 'dashboard:show_image' image_id=img.id %}"></td>
+          <td><span class="timestamp">2023-02-23 14:30:12</span></td>
+          <td><span class="status active">Active</span></td>
+        </tr>
+            {% endfor %}
+        
+        
+      </tbody>
+    </table>
+  </body>
+</html>
